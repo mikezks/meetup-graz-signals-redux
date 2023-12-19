@@ -23,3 +23,8 @@ export const passengerActions = createActionGroup({
   }
 });
 
+export const { providePassengerStore, injectPassengerStore } =
+  createReduxState('passenger', PassengerStore, store => withActionMappers(
+    mapAction(passengerActions.passengersLoaded, store.setPassengers)
+  )
+);
